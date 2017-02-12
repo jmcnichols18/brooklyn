@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.brooklyn.web.marylandreo.MarylandREOEdit"
+        datasource="marylandREODs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.brooklyn.web.marylandreo">
+    <dsContext>
+        <datasource id="marylandREODs"
+                    class="com.company.brooklyn.entity.MarylandREO"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox"
+            spacing="true">
+        <scrollBox id="scrollBox"
+                   spacing="true">
+            <fieldGroup id="fieldGroup"
+                        datasource="marylandREODs">
+                <column width="250px">
+                    <field id="ll"/>
+                    <field id="address"
+                           rows="5"/>
+                    <field id="city"
+                           rows="5"/>
+                    <field id="state"
+                           rows="5"/>
+                    <field id="zip"/>
+                    <field id="county"
+                           rows="5"/>
+                    <field id="parcelNumber"
+                           rows="5"/>
+                    <field id="assessedValue"/>
+                    <field id="estSize"/>
+                    <field id="type"
+                           rows="5"/>
+                    <field id="style"
+                           rows="5"/>
+                    <field id="yearBuilt"/>
+                    <field id="numberOfUnits"/>
+                    <field id="listPrice"/>
+                    <field id="status"
+                           rows="5"/>
+                </column>
+            </fieldGroup>
+        </scrollBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="com.company.brooklyn.web.screens.ExtMarylandREOEdit"
+        extends="com/company/brooklyn/web/marylandreo/maryland-reo-edit.xml"
+        messagesPack="com.company.brooklyn.web.screens">
+    <layout/>
+</window>

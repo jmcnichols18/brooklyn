@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
+    <include file="com/company/brooklyn/screens.xml"/>
+    <screen id="brooklyn$REOProperties.browse"
+            template="com/company/brooklyn/web/reoproperties/reo-properties-browse.xml"/>
+    <screen id="brooklyn$MarylandREO.browse"
+            template="com/company/brooklyn/web/marylandreo/maryland-reo-browse.xml"/>
+    <screen id="brooklyn$MarylandREO.edit"
+            template="com/company/brooklyn/web/marylandreo/maryland-reo-edit.xml"/>
+</screen-config>

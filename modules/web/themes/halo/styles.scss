@@ -1,0 +1,11 @@
+@import "halo-defaults";
+@import "com.company.brooklyn/halo-ext-defaults";
+@import "app-components";
+@import "com.company.brooklyn/halo-ext";
+
+.halo {
+  // include auto-generated app components SCSS
+  @include app_components;
+  
+  @include com_company_brooklyn-halo-ext;
+}

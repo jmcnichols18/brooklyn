@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="com.company.brooklyn.web.reoproperties.REOPropertiesBrowse"
+        focusComponent="rEOPropertiesesTable"
+        lookupComponent="rEOPropertiesesTable"
+        messagesPack="com.company.brooklyn.web.reoproperties">
+    <dsContext>
+        <datasource id="rEOPropertiesDs"
+                    class="com.company.brooklyn.entity.REOProperties"
+                    view="rEOProperties-view"/>
+        <groupDatasource id="rEOPropertiesesDs"
+                         class="com.company.brooklyn.entity.REOProperties"
+                         view="rEOProperties-view">
+            <query>
+                <![CDATA[select e from brooklyn$REOProperties e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <actions>
+        <action id="save"
+                caption="mainMsg://actions.Ok"
+                icon="icons/ok.png"
+                invoke="save"
+                shortcut="CTRL-ENTER"/>
+        <action id="cancel"
+                caption="mainMsg://actions.Cancel"
+                icon="icons/cancel.png"
+                invoke="cancel"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout>
+        <split id="split"
+               height="100%"
+               orientation="horizontal"
+               reversePosition="true"
+               width="100%">
+            <vbox id="lookupBox"
+                  expand="rEOPropertiesesTable"
+                  height="100%"
+                  margin="false,true,false,false"
+                  spacing="true">
+                <filter id="filter"
+                        applyTo="rEOPropertiesesTable"
+                        datasource="rEOPropertiesesDs">
+                    <properties include=".*"/>
+                </filter>
+                <groupTable id="rEOPropertiesesTable"
+                            width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="address"/>
+                        <column id="parcelNumber"/>
+                        <column id="cityStateZip"/>
+                        <column id="listPrice"/>
+                        <column id="yearBuilt"/>
+                        <column id="llId"/>
+                        <column id="numberOfUnits"/>
+                        <column id="style"/>
+                        <column id="estSize"/>
+                        <column id="status"/>
+                        <column id="zpid"/>
+                        <column id="zillowUrl"/>
+                        <column id="countySiteUrl"/>
+                        <column id="taxAssessorLink"/>
+                        <column id="taxCollectorLink"/>
+                    </columns>
+                    <rows datasource="rEOPropertiesesDs"/>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtn"
+                                action="rEOPropertiesesTable.create"/>
+                        <button id="editBtn"
+                                action="rEOPropertiesesTable.edit"/>
+                        <button id="removeBtn"
+                                action="rEOPropertiesesTable.remove"/>
+                    </buttonsPanel>
+                </groupTable>
+            </vbox>
+            <vbox id="editBox"
+                  expand="fieldGroupBox"
+                  height="100%"
+                  margin="false,false,false,true"
+                  spacing="true">
+                <vbox id="fieldGroupBox">
+                    <fieldGroup id="fieldGroup"
+                                datasource="rEOPropertiesDs">
+                        <column width="250px">
+                            <field id="address"/>
+                            <field id="parcelNumber"/>
+                            <field id="cityStateZip"/>
+                            <field id="listPrice"/>
+                            <field id="yearBuilt"/>
+                            <field id="llId"/>
+                            <field id="numberOfUnits"/>
+                            <field id="style"/>
+                            <field id="estSize"/>
+                            <field id="status"/>
+                            <field id="zpid"/>
+                            <field id="zillowUrl"/>
+                            <field id="countySiteUrl"/>
+                            <field id="taxAssessorLink"/>
+                            <field id="taxCollectorLink"/>
+                        </column>
+                    </fieldGroup>
+                </vbox>
+                <hbox id="actionsPane"
+                      spacing="true"
+                      visible="false">
+                    <button id="saveBtn"
+                            action="save"/>
+                    <button id="cancelBtn"
+                            action="cancel"/>
+                </hbox>
+            </vbox>
+        </split>
+    </layout>
+</window>

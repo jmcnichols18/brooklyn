@@ -1,0 +1,32 @@
+<Context>
+    <!-- Database connection -->
+    <Resource driverClassName="com.mysql.jdbc.Driver"
+              maxIdle="2"
+              maxTotal="20"
+              maxWaitMillis="5000"
+              name="jdbc/CubaDS"
+              password="Mdji1882!"
+              type="javax.sql.DataSource"
+              url="jdbc:mysql://ec2-35-167-235-161.us-west-2.compute.amazonaws.com/brooklyn?useSSL=false&amp;allowMultiQueries=true"
+              username="mdji"/>
+    <!-- Switch off session serialization -->
+    <Manager pathname=""/>
+    <!--<Resource driverClassName="org.hsqldb.jdbc.JDBCDriver"
+          maxIdle="2"
+          maxTotal="20"
+          maxWaitMillis="5000"
+          name="jdbc/CubaDS"
+          password=""
+          type="javax.sql.DataSource"
+          url="jdbc:hsqldb:hsql://localhost/brooklyn"
+          username="sa"/>-->
+    <!--<Resource driverClassName="org.postgresql.Driver"
+          maxIdle="2"
+          maxTotal="20"
+          maxWaitMillis="5000"
+          name="jdbc/CubaDS"
+          password="Mdji1882"
+          type="javax.sql.DataSource"
+          url="jdbc:postgresql://localhost/brookly"
+          username="duke"/>-->
+</Context>

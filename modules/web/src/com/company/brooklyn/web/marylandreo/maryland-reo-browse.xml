@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.brooklyn.web.marylandreo.MarylandREOBrowse"
+        focusComponent="marylandREosTable"
+        lookupComponent="marylandREosTable"
+        messagesPack="com.company.brooklyn.web.marylandreo">
+    <dsContext>
+        <groupDatasource id="marylandREosDs"
+                         class="com.company.brooklyn.entity.MarylandREO"
+                         view="_local">
+            <query>
+                <![CDATA[select e from brooklyn$MarylandREO e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="marylandREosTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="marylandREosTable"
+                datasource="marylandREosDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="marylandREosTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="ll"/>
+                <column id="address"/>
+                <column id="city"/>
+                <column id="state"/>
+                <column id="zip"/>
+                <column id="county"/>
+                <column id="parcelNumber"/>
+                <column id="assessedValue"/>
+                <column id="estSize"/>
+                <column id="type"/>
+                <column id="style"/>
+                <column id="yearBuilt"/>
+                <column id="numberOfUnits"/>
+                <column id="listPrice"/>
+                <column id="status"/>
+            </columns>
+            <rows datasource="marylandREosDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="marylandREosTable.create"/>
+                <button id="editBtn"
+                        action="marylandREosTable.edit"/>
+                <button id="removeBtn"
+                        action="marylandREosTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

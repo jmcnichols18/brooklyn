@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<app-component xmlns="http://schemas.haulmont.com/cuba/app-component.xsd"
+               dependsOn="com.haulmont.cuba">
+    <module blocks="*"
+            name="global">
+        <artifact appJar="true"
+                  name="app-global"/>
+        <property name="cuba.persistenceConfig"
+                  value="+com/company/brooklyn/persistence.xml"/>
+        <property name="cuba.metadataConfig"
+                  value="+com/company/brooklyn/metadata.xml"/>
+        <property name="cuba.viewsConfig"
+                  value="+com/company/brooklyn/views.xml"/>
+    </module>
+    <module blocks="core"
+            dependsOn="global"
+            name="core">
+        <artifact appJar="true"
+                  name="app-core"/>
+        <artifact classifier="db"
+                  configuration="dbscripts"
+                  ext="zip"
+                  name="app-core"/>
+        <property name="cuba.springContextConfig"
+                  value="+com/company/brooklyn/spring.xml"/>
+        <property name="cuba.mainMessagePack"
+                  value="+com.company.brooklyn.core"/>
+    </module>
+    <module blocks="web,desktop"
+            dependsOn="global"
+            name="gui">
+        <artifact appJar="true"
+                  name="app-gui"/>
+    </module>
+    <module blocks="web"
+            dependsOn="gui"
+            name="web">
+        <artifact appJar="true"
+                  name="app-web"/>
+        <artifact classifier="web"
+                  configuration="webcontent"
+                  ext="zip"
+                  name="app-web"/>
+        <artifact classifier="web"
+                  configuration="webcontent"
+                  ext="zip"
+                  name="app-web-toolkit"
+                  skipIfExists="web-toolkit"/>
+        <artifact configuration="themes"
+                  name="web-themes"/>
+        <property name="cuba.springContextConfig"
+                  value="+com/company/brooklyn/web-spring.xml"/>
+        <property name="cuba.dispatcherSpringContextConfig"
+                  value="+com/company/brooklyn/web-dispatcher-spring.xml"/>
+        <property name="cuba.windowConfig"
+                  value="+com/company/brooklyn/web-screens.xml"/>
+        <property name="cuba.menuConfig"
+                  value="+com/company/brooklyn/web-menu.xml"/>
+        <property name="cuba.permissionConfig"
+                  value="+com/company/brooklyn/web-permissions.xml"/>
+        <property name="cuba.mainMessagePack"
+                  value="+com.company.brooklyn.web"/>
+        <property name="cuba.web.widgetSet"
+                  value="com.company.brooklyn.web.toolkit.ui.AppWidgetSet"/>
+    </module>
+    <module dependsOn="web"
+            name="web-toolkit">
+        <artifact name="app-web-toolkit"/>
+    </module>
+    <module name="web-themes">
+        <artifact name="app-web-themes"/>
+    </module>
+</app-component>
